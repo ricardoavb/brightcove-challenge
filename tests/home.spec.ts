@@ -16,5 +16,6 @@ test('submit form details', async ({ page, homePage, thanksPage }) => {
   await homePage.selectInterface(getRandomInterface())
   await homePage.submit()
   await page.waitForTimeout(2000)
-  await thanksPage.verifyMessage()
+  await thanksPage.verifyMessage(name)
+  await thanksPage.verifyUrl()
 })

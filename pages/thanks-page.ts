@@ -1,4 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test'
+import { url } from '../data/data-provider'
 
 
 export class ThanksPage {
@@ -10,7 +11,13 @@ export class ThanksPage {
     this.messageHeader = page.locator('[data-testid=thank-you-header]')
   }
 
-  async verifyMessage() {
+  async verifyMessage(name: string) {
     await expect(this.messageHeader).toBeVisible()
+    await expect(this.messageHeader).toContainText(name)
+  }
+
+  async verifyUrl() {
+    const pageUrl = `${url}thank-you.html`
+    await expect(this.page).toHaveURL(pageUrl)
   }
 }
