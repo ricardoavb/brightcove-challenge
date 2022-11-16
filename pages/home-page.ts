@@ -8,6 +8,7 @@ export class HomePage {
   readonly submitButton: Locator
   readonly populateButton: Locator
   readonly interfaceSelect: Locator
+  readonly triedTestCafeCheckbox: Locator
 
   constructor(page: Page) {
     this.page = page;
@@ -15,6 +16,7 @@ export class HomePage {
     this.submitButton = page.locator('#submit-button')
     this.populateButton = page.locator('#populate')
     this.interfaceSelect = page.locator('#preferred-interface')
+    this.triedTestCafeCheckbox = page.locator('#tried-test-cafe')
   }
 
   async goto() {
@@ -22,7 +24,7 @@ export class HomePage {
   }
 
   async enterName(name: string) {
-    await this.nameInput.fill(name)
+    await this.nameInput.type(name)
   }
 
   async verifySubmitButton() {
@@ -30,7 +32,7 @@ export class HomePage {
   }
 
   async populateName() {
-    await this.populateButton.click()    
+    await this.populateButton.click()
   }
 
   async checkFeatures() {
@@ -53,5 +55,13 @@ export class HomePage {
 
   async selectInterface(prefferedInterface: string) {
     await this.interfaceSelect.selectOption(prefferedInterface)
+  }
+
+  async checktriedTestCafe() {
+    await this.triedTestCafeCheckbox.click()
+  }
+
+  async submit() {
+    await this.submitButton.click()
   }
 }
