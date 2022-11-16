@@ -1,7 +1,6 @@
 import { expect, Locator, Page } from '@playwright/test'
 import { url } from '../data/data-provider'
 
-
 export class HomePage {
   readonly page: Page
   readonly nameInput: Locator
@@ -42,5 +41,10 @@ export class HomePage {
         const locator = this.page.locator(`#${featureId}`)
         await locator.click()
     }
+  }
+
+  async selectOS(os: string) {
+    const locator = this.page.locator(`#${os}`)
+    await locator.click()
   }
 }
