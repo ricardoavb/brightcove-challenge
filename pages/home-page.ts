@@ -1,17 +1,20 @@
 import { expect, Locator, Page } from '@playwright/test'
 import { url } from '../data/data-provider'
 
+
 export class HomePage {
   readonly page: Page
   readonly nameInput: Locator
   readonly submitButton: Locator
   readonly populateButton: Locator
+  readonly interfaceSelect: Locator
 
   constructor(page: Page) {
     this.page = page;
     this.nameInput = page.locator('#developer-name')
     this.submitButton = page.locator('#submit-button')
     this.populateButton = page.locator('#populate')
+    this.interfaceSelect = page.locator('#preferred-interface')
   }
 
   async goto() {
@@ -46,5 +49,9 @@ export class HomePage {
   async selectOS(os: string) {
     const locator = this.page.locator(`#${os}`)
     await locator.click()
+  }
+
+  async selectInterface(prefferedInterface: string) {
+    await this.interfaceSelect.selectOption(prefferedInterface)
   }
 }
