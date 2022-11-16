@@ -7,7 +7,7 @@ test('submit button is disabled without a value for name', async ({ homePage }) 
   await homePage.verifySubmitButton()
 })
 
-test('submit form details', async ({ page, homePage, thanksPage }) => {
+test('submit form details', async ({ homePage, thanksPage }) => {
   await homePage.populateName()
   await homePage.enterName(name)
   await homePage.checkFeatures()
@@ -15,7 +15,6 @@ test('submit form details', async ({ page, homePage, thanksPage }) => {
   await homePage.selectOS(getRandomOS())
   await homePage.selectInterface(getRandomInterface())
   await homePage.submit()
-  await page.waitForTimeout(2000)
   await thanksPage.verifyMessage(name)
   await thanksPage.verifyUrl()
 })
