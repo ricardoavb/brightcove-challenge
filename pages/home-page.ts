@@ -1,4 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test'
+import { url } from '../data/data-provider'
 
 
 export class HomePage {
@@ -15,7 +16,7 @@ export class HomePage {
   }
 
   async goto() {
-    await this.page.goto("https://devexpress.github.io/testcafe/example/")
+    await this.page.goto(url)
   }
 
   async enterName(name: string) {
@@ -37,9 +38,9 @@ export class HomePage {
         'background-parallel-testing'
     ]
 
-    featureIds.forEach(async featureId => {
+    for (const featureId of featureIds) {
         const locator = this.page.locator(`#${featureId}`)
         await locator.click()
-    })
+    }
   }
 }

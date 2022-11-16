@@ -13,4 +13,5 @@ test('submit form details', async ({ page }) => {
   await homePage.goto()
   await homePage.populateName()
   await homePage.enterName('test name')
+  await homePage.checkFeatures()
 })
