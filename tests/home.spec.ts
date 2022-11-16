@@ -1,18 +1,13 @@
-import { test, devices } from '@playwright/test'
-import { HomePage } from '../pages/home-page'
+import { test } from '../fixtures/pages'
 import { name } from '../data/data-provider'
 import { getRandomOS, getRandomInterface } from '../utils'
 
 
-test('submit button is disabled without a value for name', async ({ page }) => {
-  const homePage = new HomePage(page)
-  await homePage.goto()
+test('submit button is disabled without a value for name', async ({ homePage }) => {
   await homePage.verifySubmitButton()
 })
 
-test.only('submit form details', async ({ page }) => {
-  const homePage = new HomePage(page)
-  await homePage.goto()
+test('submit form details', async ({ page, homePage, thanksPage }) => {
   await homePage.populateName()
   await homePage.enterName(name)
   await homePage.checkFeatures()
@@ -21,4 +16,5 @@ test.only('submit form details', async ({ page }) => {
   await homePage.selectInterface(getRandomInterface())
   await homePage.submit()
   await page.waitForTimeout(2000)
+  await thanksPage.verifyMessage()
 })
