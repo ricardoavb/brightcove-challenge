@@ -33,4 +33,7 @@ npm run report
 
 ### CI pipeline
 
-When creating a pull request the plawright tests will be executed, and html report will be created and stored for 30 days.
+When creating a pull request, the plawright tests will be executed.
+
+
+The corresponding html report will be created and stored for 30 days.
