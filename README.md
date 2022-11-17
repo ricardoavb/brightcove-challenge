@@ -1,6 +1,6 @@
 # Brightcove code challenge - Playwright tests
 
-### :rocket: How to run de project
+### :rocket: How to run the project
 
 
 1. Install npm dependecies
