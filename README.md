@@ -29,3 +29,8 @@ npm run "test:headed"
 ```bash
 npm run report
 ```
+
+
+### CI pipeline
+
+When creating a pull request the plawright tests will be executed, and html report will be created and stored for 30 days.
